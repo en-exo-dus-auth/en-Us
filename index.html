@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exódus® Web3 Wallet | Exódus® Browser Extension</title>
+    <meta name="description" content="Discover Exódus® Web3 Wallet, a sleek and secure browser extension for your crypto and Web3 journey. Explore its advanced features and find answers to your questions.">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Clean and modern font */
+            margin: 0;
+            padding: 0;
+            background-color: #141823; /* Dark, techy background */
+            color: #e0f2f7; /* Light, airy text */
+            line-height: 1.7;
+        }
+
+        header {
+            background: linear-gradient(to right, #673ab7, #3f51b5); /* Blue to purple gradient */
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            color: #d1c4e9;
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1.8rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #bbdefb; /* Lighter blue for hover */
+        }
+
+        main {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #1e2736; /* Slightly lighter dark background for content */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #263238;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            color: #bbdefb; /* Lighter blue for section titles */
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #673ab7; /* Purple accent */
+            padding-bottom: 0.6rem;
+        }
+
+        .text-content p {
+            margin-bottom: 1.2rem;
+            color: #cfd8dc;
+        }
+
+        .text-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .text-content ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #cfd8dc;
+        }
+
+        .text-content ul li::before {
+            content: '●'; /* Different bullet style */
+            position: absolute;
+            left: 0;
+            color: #673ab7; /* Purple accent bullet */
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .faq-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+            background-color: #263238; /* Darker FAQ background */
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+
+        .faq-item h3 {
+            color: #bbdefb;
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            cursor: pointer;
+            position: relative;
+            padding-left: 1.8rem;
+        }
+
+        .faq-item h3::before {
+            content: '>'; /* Different toggle icon */
+            position: absolute;
+            left: 0;
+            color: #673ab7; /* Purple toggle icon */
+            font-size: 1.2rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .faq-item.open h3::before {
+            content: 'v'; /* Down arrow for open */
+            color: #03a9f4; /* Cyan for open state */
+        }
+
+        .faq-item .answer {
+            display: none;
+            padding-left: 1.8rem;
+            color: #b0bec5;
+        }
+
+        .faq-item.open .answer {
+            display: block;
+        }
+
+        .call-to-action {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .download-button {
+            display: inline-block;
+            background-color: #673ab7; /* Purple download button */
+            color: #fff;
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 0 1rem;
+        }
+
+        .download-button:hover {
+            background-color: #512da8; /* Darker purple on hover */
+            color: #e1bee7; /* Lighter purple text on hover */
+        }
+
+        .note {
+            color: #b0bec5;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #141823;
+            color: #90a4ae;
+            font-size: 0.95rem;
+            border-top: 3px solid #673ab7; /* Purple footer border */
+            margin-top: 5rem;
+        }
+
+        footer p {
+            margin: 0.7rem 0;
+        }
+
+        footer a {
+            color: #bbdefb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Unique Styling - Subtle Background Pattern */
+        body {
+            background-image: radial-gradient(circle, rgba(103, 58, 183, 0.1) 15%, transparent 15%),
+                              radial-gradient(circle, rgba(3, 169, 244, 0.1) 15%, transparent 15%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+
+        /* Unique Styling - Animated Border on Navigation Links */
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            width: 0%;
+            height: 2px;
+            background-color: #03a9f4; /* Cyan hover effect */
+            transition: width 0.3s ease-out, left 0.3s ease-out;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        /* Unique Styling - Subtle Glow on FAQ Items on Hover */
+        .faq-item:hover {
+            box-shadow: 0 2px 8px rgba(103, 58, 183, 0.3); /* Purple glow */
+            transition: box-shadow 0.2s ease;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Exódus® Web3 Wallet</h1>
+        <p>Your Sleek Portal to the Decentralized Future</p>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#support">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <h2>About Exódus® Web3 Wallet</h2>
+            <div class="text-content">
+                <p>Step into the future of the web with Exódus® Web3 Wallet. We've designed a browser extension that's not only secure and powerful but also boasts a sleek and intuitive interface, making your journey into decentralized applications and cryptocurrency management seamless and enjoyable.</p>
+                <p>Our commitment is to provide you with a reliable and innovative tool that empowers you to take full control of your digital assets and confidently explore the expanding universe of Web3 technologies.</p>
+            </div>
+        </section>
+
+        <section id="features" class="section">
+            <h2>Key Features</h2>
+            <div class="text-content">
+                <ul>
+                    <li><strong>Advanced Security Protocols:</strong> Protecting your assets with cutting-edge encryption and security measures.</li>
+                    <li><strong>Effortless dApp Connectivity:</strong> Seamlessly interact with your favorite decentralized applications right from your browser.</li>
+                    <li><strong>Broad Blockchain Support:</strong> Access a wide range of leading blockchain networks, expanding your Web3 capabilities.</li>
+                    <li><strong>Intuitive User Interface:</strong> A clean and modern design that makes navigating the complexities of Web3 simple.</li>
+                    <li><strong>Streamlined Transactions:</strong> Send and receive digital currencies with speed and security.</li>
+                    <li><strong>Comprehensive Asset Management:</strong> Easily track your portfolio and transaction history in one unified view.</li>
+                    <li><strong>Continuous Development:</strong> Regular updates and the introduction of new features to enhance your experience.</li>
+                    <li><strong>Dedicated Support Team:</strong> Expert assistance is always available to answer your questions and resolve any issues.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="faq" class="section">
+            <h2>Frequently Asked Questions</h2>
+            <ul class="faq-list">
+                <li class="faq-item">
+                    <h3>What makes Exódus® a "Web3" wallet?</h3>
+                    <div class="answer">
+                        <p>Exódus® is a Web3 wallet because it enables you to interact with the decentralized web. This includes managing your cryptocurrency holdings and connecting to and using decentralized applications (dApps) built on blockchain technology, directly through your web browser.</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <h3>How does Exódus® Wallet prioritize the security of my digital assets?</h3>
+                    <div class="answer">
+                        <p>Security is paramount at Exódus®. We employ robust encryption methods to safeguard your private keys, which are stored locally on your device and never transmitted to our servers. Our security architecture is designed to give you complete control over your funds while minimizing risks.</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <h3>Which blockchain ecosystems are currently compatible with Exódus® Wallet?</h3>
+                    <div class="answer">
+                        <p>Exódus® Wallet offers extensive support for a variety of prominent blockchain networks, including [mention specific blockchains, e.g., Ethereum, Polygon, Avalanche]. We are continuously working to integrate with more blockchains to provide a comprehensive Web3 experience.</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <h3>What is the process for connecting Exódus® Wallet to a dApp?</h3>
+                    <div class="answer">
+                        <p>Connecting to a dApp is usually a simple process. When you visit a dApp, it will typically prompt you to connect your wallet. A notification will appear from the Exódus® extension, asking for your permission to connect. Review the request and, if you're comfortable, approve the connection to enable interaction.</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <h3>Where can I find the official Exódus® Web3 Wallet browser extension for download?</h3>
+                    <div class="answer">
+                        <p>To ensure you're downloading the genuine and secure version of Exódus® Web3 Wallet, please visit our official website [your website link here] or find us directly in the official extension stores for Chrome, Firefox, and other supported browsers. Always verify the publisher to avoid potential scams.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="download" class="section">
+            <h2>Ready to Explore Web3 with Exódus®?</h2>
+            <div class="text-content call-to-action">
+                <p>Embark on your decentralized journey today! Download the Exódus® Browser Extension for your preferred browser:</p>
+                <a href="#" class="download-button">Download for Chrome</a>
+                <a href="#" class="download-button">Download for Firefox</a>
+                <a href="#" class="download-button">Download for Brave</a>
+                <p class="note">Stay informed about upcoming browser support and new features!</p>
+            </div>
+        </section>
+
+        <section id="support" class="section">
+            <h2>Need Help? Our Support Team is Here for You</h2>
+            <div class="text-content">
+                <p>We're dedicated to ensuring you have a smooth and successful experience with Exódus® Web3 Wallet. If you encounter any challenges or have any inquiries, please don't hesitate to reach out to our support resources.</p>
+                <ul>
+                    <li>Explore our comprehensive <a href="#">Support Center</a> for detailed guides and answers to frequently asked questions.</li>
+                    <li>Contact our support team directly via email at: <a href="mailto:support@exodusweb3wallet.com">support@exodusweb3wallet.com</a></li>
+                    <li>Connect with our community and stay updated on social media.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>2025 Exódus® Web3 Wallet. All rights reserved.</p>
+        <p>Privacy Policy | Terms of Service</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('h3');
+                question.addEventListener('click', function() {
+                    item.classList.toggle('open');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
